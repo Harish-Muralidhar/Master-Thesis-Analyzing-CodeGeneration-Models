@@ -1,0 +1,19 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nNote\n\nString S consists only of small latin letters. \n\n\"\"\"\n\ndef main():\n    \n    \n    S = input()\n    \n    n = len(S)\n    \n    dp = [0,0,0]\n    \n    for i in range(n):\n        if S[i] == 'A':\n            dp[0] += 1\n        elif S[i] == 'B':\n            dp[1] += dp[0]\n        elif S[i] == 'C':\n            dp[2] += dp[1]\n    print(dp[2])\n    \n    \nmain()"
+    }
+  ],
+  "created": 1669670757,
+  "id": "cmpl-6HfvRIEaFz4msdENj2JRnmiQ7UE9R",
+  "model": "code-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 153,
+    "prompt_tokens": 367,
+    "total_tokens": 520
+  }
+}

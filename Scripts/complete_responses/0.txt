@@ -1,0 +1,19 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "So this is the required arrangement which maximizes the required value.\n\n\"\"\"\n\nt = int(input())\n\nfor i in range(t):\n    x = input()\n    y = input()\n    ans = []\n    if len(set(x))==1 and len(set(y))==1:\n        print(x)\n    elif len(set(x))==1 and len(set(y))==2:\n        if y.count('B')>y.count('W'):\n            ans = ['B']*len(x)\n        else:\n            ans = ['W']*len(x)\n        print(''.join(ans))\n    elif len(set(x))==2 and len(set(y))==1:\n        if x.count('B')>x.count('W'):\n            ans = ['B']*len(x)\n        else:\n            ans = ['W']*len(x)\n        print(''.join(ans))\n    elif len(set(x))==2 and len(set(y))==2:\n        if x.count('B')>x.count('W') and y.count('B')>y.count('W'):\n            ans = ['B']*len(x)\n        elif x.count('B')<x.count('W') and y.count('B')<y.count('W'):\n            ans = ['W']*len(x)\n        else:\n            for i in range(len(x)):\n                if x[i]==y[i]:\n                    ans.append(x[i])\n                else:\n                    if x[i]=='B':\n                        ans.append('W')\n                    else:\n                        ans.append('B')\n        print(''.join(ans))"
+    }
+  ],
+  "created": 1669670740,
+  "id": "cmpl-6HfvAOHQbchEAyCCEaCd8wVswsg1W",
+  "model": "code-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 420,
+    "prompt_tokens": 468,
+    "total_tokens": 888
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\n\n\nTime Limit: 1 sec\n\nMemory Limit: 50 MB\n\n'''\n\n# Write your code here\nimport sys\nsys.setrecursionlimit(100000)\n\ndef canpay(l,t,a):\n    if t==0:\n        return True\n    elif len(l)==0:\n        return False\n    elif l[-1]>t:\n        return canpay(l[:-1],t,a)\n    elif a[len(l)-1][t]:\n        return True\n    elif canpay(l[:-1],t,a) or canpay(l[:-1],t-l[-1],a):\n        a[len(l)-1][t]=True\n        return True\n    else:\n        return False\n    \nn=int(input())\nfor i in range(n):\n    n1,n2=input().split()\n    n1,n2=int(n1),int(n2)\n    l=list(map(int,input().split()))\n    a=[[False]*(n2+1) for i in range(n1+1)]\n    if canpay(l,n2,a):\n        print(\"Yes\")\n    else:\n        print(\"No\")"
+    }
+  ],
+  "created": 1669670763,
+  "id": "cmpl-6HfvXJqyzIczcNRlF5EqhoOQGQCRg",
+  "model": "code-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 297,
+    "prompt_tokens": 595,
+    "total_tokens": 892
+  }
+}
